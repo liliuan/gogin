@@ -5,7 +5,7 @@ import (
 	"gopkg.in/mgo.v2"
 )
 
-var Mgodb *mgo.Database
+var Database *mgo.Database
 
 type Mgoer interface {
 	FindOne(query, selector map[string]interface{}) (map[string]interface{}, error)
@@ -26,7 +26,7 @@ func initMongoDB() {
 
 	session.SetMode(mgo.Eventual, true)
 
-	Mgodb = session.DB(cfg.MgoName)
+	Database = session.DB(cfg.MgoName)
 
 }
 
